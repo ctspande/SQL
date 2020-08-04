@@ -1,0 +1,56 @@
+Sections 1 & 2
+Basics of SQL
+
+
+
+
+
+
+#Queries used:
+
+SELECT emailaddress, ModifiedDate from person.emailaddress
+
+select * from person.emailaddress
+
+select count(*) from person.emailaddress
+select count(*) from person.password
+
+select passwordhash, rowguid from person.password
+select emailaddress, rowguid from person.emailaddress
+select firstname, lastname from person.person where firstname = 'craig'
+
+select firstname, lastname from person.person where firstname = 'jon' and lastname = 'wu'
+select firstname, lastname from person.person 
+where firstname = 'jon' or firstname = 'sam'
+
+
+select * from person.person 
+where firstname = 'jon' or firstname = 'sam'
+
+select firstname, lastname from person.person 
+where firstname <> 'jon' and  firstname <>'sam'
+
+select * from sales.customer where storeid = 1022
+
+select firstname, lastname from person.person where firstname like '%abe%'
+
+select firstname, lastname from person.person where firstname like '_r%'
+
+select top 10 * from person.person
+
+select * from humanresources.employee order by hiredate desc
+
+select top 10 * from humanresources.employee order by hiredate desc
+
+select * from person.person 
+where firstname like '%jon%' 
+order by lastname desc, middlename asc
+
+select max(salesytd) as maxsales from sales.SalesPerson
+
+select count(addressid), city
+from person.address
+group by city
+order by count(addressid) desc
+
+select * from person.address
