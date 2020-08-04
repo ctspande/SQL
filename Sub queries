@@ -1,0 +1,41 @@
+#Sub queries
+select * from sales.salesperson
+where SalesYTD = (select Max(salesYTD) as salesvalue from sales.SalesPerson)
+
+select * from person.person
+
+select BusinessEntityID from person.person
+where firstname = 'Terri' and
+lastname = 'Duffy' and 
+MiddleName = 'lee'
+
+
+#select address id from table 'person.BusinessEntityAddress' where BusinessEntityid = the business entity id from table person.person of the person with the first name Terri, 
+middle name Lee and last name Duffy
+
+select addressid from person.BusinessEntityAddress
+where BusinessEntityid = (select BusinessEntityID from person.person
+where firstname = 'Terri' and
+lastname = 'Duffy' and 
+MiddleName = 'lee')
+
+select * from person.address where addressid = 
+(select addressid from person.BusinessEntityAddress
+where BusinessEntityid = (select BusinessEntityID from person.person
+where firstname = 'Terri' and
+lastname = 'Duffy' and 
+MiddleName = 'lee'))
+
+#simplification below
+
+select addressline1, city from person.address Pa, person.BusinessEntityAddress Pb, person.person Pp
+where Pa.addressid = Pb.addressid
+and Pb.BusinessEntityID = Pp.BusinessEntityID
+and Pp.firstname = 'terri' and pp.middlename = 'lee'
+
+#JOIN example
+
+select addressline1, city from person.address
+INNER JOIN person.BusinessEntityAddress 
+on person.Address.addressid = person.BusinessEntityAddress.addressID
+and BusinessEntityID = 2
