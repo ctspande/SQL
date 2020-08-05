@@ -1,0 +1,8 @@
+Assigning Primary Key - CONSTRAINT names the FK(Foreign Key)
+
+create table employee3 (
+EmpID int Primary Key,
+Firstname varchar(255),
+Lastname varchar(255),
+AddressID int CONSTRAINT FK_Employee_Address_AddressID REFERENCES Person.Address(AddressID)
+)
