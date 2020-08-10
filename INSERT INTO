@@ -1,0 +1,36 @@
+CREATE TABLE Employee (
+EmpID int Primary Key,
+FirstName varchar(255) NOT NULL,
+LastName varchar(255)
+)
+
+ 
+
+INSERT INTO Employee (EmpID, FirstName, LastName)
+VALUES (1, 'Craig', 'Spande')
+
+INSERT INTO Employee (EmpID, FirstName, LastName)
+VALUES (2, 'Craig', 'Spand')
+
+INSERT INTO Employee (EmpID, FirstName, LastName)
+VALUES (3, 'Craig', 'Span')
+
+INSERT INTO Employee
+VALUES (4, 'Craig', 'Spa'),
+(5, 'Craig', 'Sp'),
+(6, 'Craig', 'S')
+
+Update Employee
+SET Lastname = 'Spande'
+Where EmpID = 4
+
+Update Employee
+SET Lastname = 'Spa'
+Where EmpID = 4
+
+DELETE FROM Employee
+where EmpID = 5
+
+SELECT * FROM Employee
+
+DELETE FROM Employee
