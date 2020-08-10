@@ -1,0 +1,16 @@
+Load AdventureWorks2017 database in SQL
+
+Create procedure alladdress #in my mind create procedure = create program
+AS
+select * from person.address
+go #this does the same as select * from table_name
+
+exec alladdress
+
+alter procedure alladdress @city varchar(255)
+as
+select * from person.address
+where city = @city
+go
+
+exec alladdress @city = 'Paris' #executes select * from where only the address in Paris are return
